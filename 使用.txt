@@ -1,0 +1,73 @@
+1:vue 框架
+
+2:element-ui框架
+	1:githbub
+		https://github.com/ElemeFE/element
+	2:说明文档
+		https://element.eleme.cn/#/zh-CN
+
+
+3:使用
+	1:过渡动画效果
+		transition
+	2:布局
+		基础布局 栅格布局 el-row  el-col
+		container布局
+		  <el-container>：外层容器。当子元素中包含 <el-header> 或 <el-footer> 时，
+		                  全部子元素会垂直上下排列，否则会水平左右排列。
+      <el-header>：顶栏容器。
+      <el-aside>：侧边栏容器。
+      <el-main>：主要区域容器。
+      <el-footer>：底栏容器。
+  3:图标使用
+    直接通过设置类名为 el-icon-iconName 来使用即可。例如：  <i class="el-icon-edit"></i>
+    设置图标大小 : font-size: 45px;
+  4:button 按钮   el-button
+    属性: type( primary, success) plain(朴素) round(圆角) circle(圆形) disabled(不可用按钮) type="text"(文字)
+  5:文字链接      el-link
+
+4:表单
+  1:单选框 el-radio  导航栏按钮组可用这个实现
+  2:多选框 el-checkbox
+  3:输入框 input el-input 重要
+  4:计数器 el-input-number
+  5:select选择器 Popupwindow 下拉框 el-select
+  6:Cascader 级联选择器  el-cascader
+  7:Switch 开关   el-switch
+  8:Slider 滑块   el-slider
+  9:TimePicker 时间选择器   el-time-select
+  10:DatePicker 日期选择器 el-date-picker
+  11:DateTimePicker 日期时间选择器
+  12:Upload 上传    el-upload
+  13:Form 表单 el-form
+
+5:data数据展示
+  1:Table 表格 el-table
+  2:Progress 进度条  el-progress
+  3:Tree 树形控件 el-tree
+  4:Pagination 分页 el-pagination
+  5:Badge 标记  el-badge
+
+6:notice 通知
+  1:Loading 加载    属性 v-loading="loading"
+  2:Message 消息提示  this.$message('这是一条消息提示');(代码实现)
+  3:MessageBox 弹框
+  4:Notification 通知 this.$notify({})
+
+7:nav 导航
+  1:NavMenu 导航菜单  el-menu
+  2:Tabs 标签页  el-tabs
+  3:Dropdown 下拉菜单   el-dropdown
+  4:Steps 步骤条 el-steps
+
+8:其他
+  1:Dialog 对话框  el-dialog
+  2:Tooltip 文字提示  el-tooltip
+  3:Popover 弹出框     el-popover
+  4:Carousel 走马灯    el-carousel
+  5:Collapse 折叠面板   el-collapse
+  6:Timeline 时间线    el-timeline
+  7:Divider 分割线     <el-divider></el-divider>
+  8:Calendar calendar   <el-calendar v-model="value"></el-calendar>
+  9:Image 图片(保留原生img的特性下，支持懒加载，自定义占位、加载失败等)  el-image
+  10:Backtop 回到顶部 el-backtop
