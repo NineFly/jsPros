@@ -6,7 +6,9 @@ import axios from 'axios'
 import router from "./router";
 
 Vue.config.productionTip = false
-Vue.prototype.$ajax = axios
+Vue.prototype.axios = axios
+
+Vue.prototype.BASE_URL = 'http://localhost:3000/'
 
 /* eslint-disable no-new */
 new Vue({

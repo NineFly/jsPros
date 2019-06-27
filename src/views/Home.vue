@@ -54,13 +54,12 @@
         // this.$ajax.get("http://39.107.111.195:8888/", {
         //   this.$ajax.get("http://localhost:8888/", {
         //   this.$ajax.get("http://localhost:3000/", {
-          this.$ajax.get("http://localhost:3000/userList/getUserList", {
-          // params: {
-          //   'userId': 'yulin',
-          //   'date': new Date()
-          // }
-        })
-          .then(function (res) {
+          this.axios.get( this.BASE_URL + 'userList/getUserList', {
+          params: {
+            'userId': 'yulin',
+            'date': new Date()
+          }
+        }).then(function (res) {
             _self.mList = res.data;
             console.log("成功=="+JSON.stringify(res));
           })
