@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row main">
       <h2 class="sub-header">Section title</h2>
-      <div class="text-right">
-        <a class="btn btn-success" href="/students/new">添加学生</a>
+      <div class="text-right" @click="addStudent()">
+        <a class="btn btn-success">添加学生</a>
       </div>
       <div class="table-responsive">
         <table class="table table-striped table-hover text-left">
@@ -25,49 +25,65 @@
             <td>{{ item.age }}</td>
             <td>{{ item.hobbies }}</td>
             <td>
-              <a href="/students/edit?id=4">编辑</a>
-              <a href="/students/delete?id=4">删除</a>
+              <a @click="edit(item)">编辑</a>
+              <a @click="del(item.id)">删除</a>
             </td>
           </tr>
           </tbody>
         </table>
       </div>
-
     </div>
-
   </div>
 </template>
 
 <script>
   export default {
-    data(){
+    data() {
       return {
-        mList:[]
+        mList: []
       }
     },
-    created(){
+    created() {
       this.getData();
     },
     methods: {
-      getData(){
-        var _self = this;
-        // this.$ajax.get("http://39.107.111.195:8888/", {
-        //   this.$ajax.get("http://localhost:8888/", {
-        //   this.$ajax.get("http://localhost:3000/", {
-          this.axios.get( this.BASE_URL + 'userList/getUserList', {
+      addStudent() {
+        this.$router.push({
+          path: '/add_stu',
+          name: 'add_stu'
+        })
+      },
+      edit(thisItem){
+        this.$router.push({
+          path: '/add_stu',
+          name: 'add_stu',
           params: {
-            'userId': 'yulin',
-            'date': new Date()
+            stu_obj: thisItem
+          }
+        })
+      },
+      getData() {
+        var _self = this
+        this.axios.get(this.BASE_URL + 'userList/getUserList', {
+          params: {}
+        }).then(function (res) {
+          _self.mList = res.data;
+        }).catch(function (err) {
+
+        });
+      },
+      del(thisId){
+        var _self = this
+        this.axios.get(this.BASE_URL + 'userList/delete', {
+          params: {
+            id:thisId
           }
         }).then(function (res) {
-            _self.mList = res.data;
-            console.log("成功=="+JSON.stringify(res));
-          })
-          .catch(function (err) {
-            console.log("失败=="+JSON.stringify(err))
-          });
-
-
+          _self.getData();
+          console.log("成功==" + JSON.stringify(res));
+        }).catch(function (err) {
+          console.log("失败==" + JSON.stringify(err))
+        });
       }
 
     }
@@ -79,6 +95,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
   }
+
   .main {
     padding-top: 10px;
     margin: 0 100px;

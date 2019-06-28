@@ -12,7 +12,7 @@ const router = new Router(
         name: "home",
         component: Home,
         meta: {
-          keepAlive: true,
+          keepAlive: false,
           showTabBar: true,
           title: '首页'
         }
@@ -22,9 +22,19 @@ const router = new Router(
         name: "first",
         component: () => import("@/views/First.vue"),
         meta: {
-          keepAlive: true,
+          keepAlive: false,
           showTabBar: true,
           title: '第一个Vue'
+        }
+      },
+      {
+        path: "/add_stu",
+        name: "add_stu",
+        component: () => import("@/views/AddStudent.vue"),
+        meta: {
+          keepAlive: false,
+          showTabBar: true,
+          title: '添加学生'
         }
       },
       // {
@@ -43,7 +53,7 @@ router.beforeEach(function (to, from, next) {
   const fromDepth = from.path.split('/').length
   if (toDepth < fromDepth) { // 前进刷新后退不刷新
     from.meta.keepAlive = false
-    to.meta.keepAlive = true
+    to.meta.keepAlive = false
   }
   next()
 });
